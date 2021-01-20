@@ -8,9 +8,10 @@ const createsignupToken = (email, firstName, lastName) => {
     const token = jwt.sign(JSON.stringify({ email, firstName, lastName }), secretTokenKey)
     return token
 }
-const createLoginToken = (email, firstName, lastName) => {
+
+const createLoginToken = (email, id, firstName, lastName) => {
     console.log();
-    const token = jwt.sign(JSON.stringify({ email, firstName, lastName }), secretTokenKey)
+    const token = jwt.sign(JSON.stringify({ email, id, firstName, lastName }), secretTokenKey)
     return token
 }
 
@@ -23,4 +24,4 @@ const verifyToken = async (token) => {
     }
 }
 
-module.exports = { createsignupToken }
+module.exports = { createsignupToken, createLoginToken }
